@@ -8,6 +8,11 @@ export const appendDivToBody = (id, innerHTML) => {
 
 // builds a list from a given object (param 1) within a given ul element (param 2)
 export const listItemsFromObject = (object, listElement) => {
+  // clear out list
+  if (listElement.children.length) {
+    listElement.innerHTML = "";
+  }
+
   for (const property in object) {
     const newLiItem = listElement.appendChild(document.createElement("li"));
     newLiItem.innerHTML = `${property}: ${object[property]}`;

@@ -14,7 +14,7 @@
 <body>
     <div class="mainDiv" id="weatherInfo">
         <h1 id="prompt">Enter your zip code and country to get local weather information!</h1>
-        <h3>Currently only supported in the US</h3>
+        <h3 id = "location">Currently only supported in the US</h3>
         <form action="">
             <input type="text" maxlength="5" id="zipInput" placeholder="Zip code">
             <input type="text" maxlength="2" id="countryCodeInput" placeholder="ISO 3166 country code">
@@ -26,7 +26,6 @@
         <ul id="testList"></ul>
     </div>
     <script src="./main.js" type="module"></script>
-    <script type="text/javascript" src="./jsonFormatting.js"></script>
 </body>
 
 </html>
