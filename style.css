@@ -1,13 +1,17 @@
 .mainDiv {
-    
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
+
 #weatherInfo {
-    background-color: gainsboro;
-    height:200px
+  background-color: gainsboro;
+
 }
 
 #clothingOptions {
-    background-color:lavender;
-    height:200px
+  background-color: lavender;
+
 }

@@ -7,22 +7,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>What Should I Wear?</title>
     <link rel="stylesheet" href="style.css">
-    <!-- the script below costs $$$! $0.15 per 100 calls. Use only as needed. -->
-    <script src="./jsonFormatting.js" defer></script>
-    <script src="./helperFunctions.js" defer type="module"></script>
-    <script defer src="./main.js" type="module"></script>
+
 
 </head>
 
 <body>
     <div class="mainDiv" id="weatherInfo">
-        <h1="prompt">Enter your zip code to get local weather information!</h1>
-            <form action="">
-                <input type="text" maxlength="5" id="zipInput">
-                <button id="submit">SUBMIT</button>
-            </form>
+        <h1 id="prompt">Enter your zip code and country to get local weather information!</h1>
+        <h3>Currently only supported in the US</h3>
+        <form action="">
+            <input type="text" maxlength="5" id="zipInput" placeholder="Zip code">
+            <input type="text" maxlength="2" id="countryCodeInput" placeholder="ISO 3166 country code">
+            <button id="submit">SUBMIT</button>
+        </form>
+        <ul id="localDataList"></ul>
     </div>
-    <div class="mainDiv" id="clothingOptions"></div>
+    <div class="mainDiv" id="clothingOptions">
+        <ul id="testList"></ul>
+    </div>
+    <script src="./main.js" type="module"></script>
+    <script type="text/javascript" src="./jsonFormatting.js"></script>
 </body>
 
 </html>
