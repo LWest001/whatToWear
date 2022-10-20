@@ -19,11 +19,17 @@ export const listItemsFromObject = (object, listElement) => {
   }
 };
 
-export const formatCurrentData = (object) => {
+export const formatCurrentData = (object, timezone) => {
   // Items for use within new object
-  const date = new Date(object["dt"] * 1000);
-  const sunriseDate = new Date(object["sunrise"] * 1000);
-  const sunsetDate = new Date(object["sunset"] * 1000);
+  let date = new Date(object["dt"] * 1000);
+  date = date.toLocaleString("en-US", { timeZone: timezone });
+
+  let sunriseTime = new Date(object["sunrise"] * 1000);
+  sunriseTime = sunriseTime.toLocaleTimeString("en-US", { timeZone: timezone });
+
+  let sunsetTime = new Date(object["sunset"] * 1000);
+  sunsetTime = sunsetTime.toLocaleTimeString("en-US", { timeZone: timezone });
+
   const weather = object["weather"][0];
 
   // to deal with minute values under 10
@@ -38,10 +44,8 @@ export const formatCurrentData = (object) => {
   // build object to display in list
   const newObject = {
     Date: date,
-    Sunrise: `${sunriseDate.getHours()}:${fixMinutes(
-      sunriseDate.getMinutes()
-    )}`,
-    Sunset: `${sunsetDate.getHours()}:${fixMinutes(sunsetDate.getMinutes())}`,
+    Sunrise: sunriseTime,
+    Sunset: sunsetTime,
     Temperature: object["temp"] + " F",
     "Feels like": object["feels_like"] + " F",
     Humidity: object["humidity"] + "%",
